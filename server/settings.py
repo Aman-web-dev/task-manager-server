@@ -26,7 +26,6 @@ SECRET_KEY = 'django-insecure-nf=#5i7b=7(o6^*#xls^#7mdlgkf^v%twyx@^0h6(^7k^-wm9z
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
@@ -72,6 +71,8 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+ALLOWED_HOSTS = ['task-manager-server-m05d.onrender.com']
 
 
 CORS_ALLOWED_ORIGINS = [
