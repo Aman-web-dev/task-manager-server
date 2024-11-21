@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
+import dj_database_url
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -72,7 +75,7 @@ MIDDLEWARE = [
 
 CORS_ALLOW_ALL_ORIGINS = True
 
-ALLOWED_HOSTS = ['task-manager-server-m05d.onrender.com']
+ALLOWED_HOSTS = ['task-manager-server-m05d.onrender.com','127.0.0.1']
 
 
 CORS_ALLOWED_ORIGINS = [
@@ -107,11 +110,13 @@ WSGI_APPLICATION = 'server.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# Replace the SQLite DATABASES configuration with PostgreSQL:
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        # Replace this value with your local database's connection string.
+        default='postgresql://task_manager_u922_user:T57mxJ4hys1Hjsazn6sSIpayVhzIxqK5@dpg-csvkmi2lqhvc73ciugbg-a.oregon-postgres.render.com/task_manager_u922',
+        conn_max_age=600
+    )
 }
 
 
